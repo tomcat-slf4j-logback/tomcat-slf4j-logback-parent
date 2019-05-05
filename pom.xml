@@ -12,18 +12,18 @@
     Contributors: Tomcat-Slf4j-Logback Team.
 
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="https://maven.apache.org/POM/4.0.0" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.tomcat-slf4j-logback</groupId>
-    <artifactId>tomcat-slf4j-logback</artifactId>
-    <version>1.0.20-SNAPSHOT</version>
+    <artifactId>tomcat-slf4j-logback-parent</artifactId>
+    <version>1.1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>tomcat-slf4j-logback</name>
-    <description>Tomcat Slf4j Logback Integration</description>
+    <name>tomcat-slf4j-logback-parent</name>
+    <description>Tomcat Slf4j Logback Integration Parent Pom</description>
 
-    <url>https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback</url>
+    <url>https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback-parent</url>
     <inceptionYear>2010</inceptionYear>
 
     <organization>
@@ -69,18 +69,18 @@
 
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/issues</url>
+        <url>https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback-parent/issues</url>
     </issueManagement>
     <ciManagement>
         <system>travis-ci</system>
-        <url>https://travis-ci.org/tomcat-slf4j-logback/tomcat-slf4j-logback</url>
+        <url>https://travis-ci.org/tomcat-slf4j-logback/tomcat-slf4j-logback-parent</url>
     </ciManagement>
 
     <distributionManagement>
         <site>
             <id>gh-pages</id>
-            <name>Tomcat Slf4j Logback GitHub Pages</name>
-            <url>git:ssh://git@github.com/tomcat-slf4j-logback/tomcat-slf4j-logback.git?gh-pages#</url>
+            <name>Tomcat Slf4j Logback Parent GitHub Pages</name>
+            <url>git:ssh://git@github.com/tomcat-slf4j-logback/tomcat-slf4j-logback-parent.git?gh-pages#</url>
         </site>
         <snapshotRepository>
             <id>ossrh</id>
@@ -106,7 +106,7 @@
         </license>
         <license>
             <name>Logback License</name>
-            <url>http://logback.qos.ch/license.html</url>
+            <url>https://logback.qos.ch/license.html</url>
             <distribution>manual</distribution>
             <comments>Dual-licensed under the EPL v1.0 and the LGPL 2.1</comments>
         </license>
@@ -119,9 +119,9 @@
     </licenses>
 
     <scm>
-        <connection>scm:git:ssh://git@github.com/tomcat-slf4j-logback/tomcat-slf4j-logback.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com/tomcat-slf4j-logback/tomcat-slf4j-logback.git</developerConnection>
-        <url>https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback</url>
+        <connection>scm:git:ssh://git@github.com/tomcat-slf4j-logback/tomcat-slf4j-logback-parent.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/tomcat-slf4j-logback/tomcat-slf4j-logback-parent.git</developerConnection>
+        <url>https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback-parent</url>
         <tag>HEAD</tag>
     </scm>
 
@@ -147,24 +147,28 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j.version}</version>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>jcl-over-slf4j</artifactId>
             <version>${slf4j.version}</version>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-core</artifactId>
             <version>${logback.version}</version>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>${logback.version}</version>
+            <scope>compile</scope>
             <exclusions>
                  <exclusion>
                       <groupId>com.sun.mail</groupId>
@@ -177,6 +181,7 @@
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-access</artifactId>
             <version>${logback.version}</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
@@ -415,6 +420,7 @@
                     <artifactId>maven-release-plugin</artifactId>
                     <version>2.5.3</version>
                     <configuration>
+                        <addSchema>false</addSchema>
                         <releaseProfiles>release</releaseProfiles>
                     </configuration>
                 </plugin>
@@ -537,7 +543,7 @@
                     <artifactId>license-maven-plugin</artifactId>
                     <version>3.0</version>
                     <configuration>
-                        <header>${main.basedir}/LICENSE_HEADER</header>
+                        <header>LICENSE_HEADER</header>
                         <excludes>
                             <exclude>.factorypath</exclude>
                             <exclude>.gitattributes</exclude>
@@ -568,22 +574,6 @@
         </pluginManagement>
 
         <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>build-helper-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>root-location</id>
-                        <goals>
-                            <goal>rootlocation</goal>
-                        </goals>
-                        <configuration>
-                            <rootLocationProperty>main.basedir</rootLocationProperty>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
             <plugin>
                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-clean-plugin</artifactId>
