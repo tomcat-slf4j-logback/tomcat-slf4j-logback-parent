@@ -80,7 +80,8 @@
         <site>
             <id>gh-pages</id>
             <name>Tomcat Slf4j Logback Parent GitHub Pages</name>
-            <url>git:ssh://git@github.com/tomcat-slf4j-logback/tomcat-slf4j-logback-parent.git?gh-pages#</url>
+            <!-- Using github vs child modules here so the plugin does not append these together, otherwise site distros fail -->
+            <url>github:ssh://tomcat-slf4j-logback.github.io/tomcat-slf4j-logback-parent/</url>
         </site>
         <snapshotRepository>
             <id>ossrh</id>
