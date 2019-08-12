@@ -510,7 +510,7 @@
                 <plugin>
                     <groupId>pl.project13.maven</groupId>
                     <artifactId>git-commit-id-plugin</artifactId>
-                    <version>3.0.0</version>
+                    <version>3.0.1</version>
                     <configuration>
                         <failOnNoGitDirectory>false</failOnNoGitDirectory>
                         <!-- Fixes occasional issue in commit id plugin - see https://github.com/ktoso/maven-git-commit-id-plugin/issues/61 -->
