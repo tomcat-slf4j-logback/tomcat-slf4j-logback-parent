@@ -458,7 +458,7 @@
                             <artifactId>wagon-ssh</artifactId>
                             <version>3.3.3</version>
                          </dependency>
-                        <!-- For reporting only of versions -->
+                        <!-- For reporting only of versions (make sure to update in site.xml) -->
                         <dependency>
                             <groupId>org.apache.maven.skins</groupId>
                             <artifactId>maven-fluido-skin</artifactId>
