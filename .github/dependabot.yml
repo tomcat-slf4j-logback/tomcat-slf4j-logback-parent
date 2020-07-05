@@ -1,0 +1,19 @@
+version: 2
+updates:
+- package-ecosystem: maven
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: net.trajano.wagon:wagon-git
+    versions:
+    - "> 2.0.3"
+  - dependency-name: org.slf4j:jcl-over-slf4j
+    versions:
+    - ">= 2.0.0-alpha0.a"
+    - "< 2.0.1"
+  - dependency-name: org.slf4j:slf4j-api
+    versions:
+    - ">= 2.0.0-alpha0.a"
+    - "< 2.0.1"
