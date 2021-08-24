@@ -140,7 +140,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- Leave these at current revisions as last to support jdk 7 -->
-        <logback.version>1.3.0-alpha9</logback.version>
+        <logback.version>1.3.0-alpha10</logback.version>
         <slf4j.version>1.8.0-beta4</slf4j.version>
     </properties>
 
