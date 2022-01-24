@@ -80,7 +80,7 @@
         <site>
             <id>gh-pages-scm</id>
             <name>Tomcat Slf4j Logback Parent GitHub Pages</name>
-            <url>git:ssh://git@github.com/tomcat-slf4j-logback/tomcat-slf4j-logback-parent.git</url>
+            <url>scm:git:ssh://git@github.com/tomcat-slf4j-logback/tomcat-slf4j-logback-parent.git</url>
         </site>
         <snapshotRepository>
             <id>ossrh</id>
