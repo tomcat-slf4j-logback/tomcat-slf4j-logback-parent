@@ -126,7 +126,7 @@
     </scm>
 
     <properties>
-        <copyright>2021</copyright>
+        <copyright>2022</copyright>
         <github.global.server>github</github.global.server>
 
         <maven.compiler.source>1.7</maven.compiler.source>
