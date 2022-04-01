@@ -138,9 +138,14 @@
         <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <!-- Keep slf4j/logback on proper rele -->
+        <!-- Keep slf4j/logback on proper release -->
         <logback.version>1.2.11</logback.version>
         <slf4j.version>1.7.36</slf4j.version>
+
+        <!-- Plugin Artifacts -->
+        <plexus-utils.version>3.4.1</plexus-utils.version>
+        <scm.version>2.0.0-M1</scm.version>
+        <wagon.version>3.5.1</wagon.version>
     </properties>
 
     <dependencies>
@@ -449,15 +454,30 @@
                     <version>3.11.0</version>
                     <dependencies>
                         <dependency>
-                            <groupId>org.apache.maven.doxia</groupId>
-                            <artifactId>doxia-module-markdown</artifactId>
-                            <version>1.11.1</version>
-                        </dependency>
-                        <dependency>
                             <groupId>org.apache.maven.wagon</groupId>
                             <artifactId>wagon-scm</artifactId>
-                            <version>3.5.1</version>
+                            <version>${wagon.version}</version>
                          </dependency>
+                        <dependency>
+                            <groupId>org.apache.maven.scm</groupId>
+                            <artifactId>maven-scm-api</artifactId>
+                            <version>${scm.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.apache.maven.scm</groupId>
+                            <artifactId>maven-scm-provider-gitexe</artifactId>
+                            <version>${scm.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.apache.maven.scm</groupId>
+                            <artifactId>maven-scm-manager-plexus</artifactId>
+                            <version>${scm.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.codehaus.plexus</groupId>
+                            <artifactId>plexus-utils</artifactId>
+                            <version>${plexus-utils.version}</version>
+                        </dependency>
                         <!-- For reporting only of versions (make sure to update in site.xml) -->
                         <dependency>
                             <groupId>org.apache.maven.skins</groupId>
