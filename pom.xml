@@ -144,7 +144,7 @@
 
         <!-- Plugin Artifacts -->
         <plexus-utils.version>3.4.2</plexus-utils.version>
-        <scm.version>2.0.0-M1</scm.version>
+        <scm.version>2.0.0-M2</scm.version>
         <wagon.version>3.5.2</wagon.version>
     </properties>
 
