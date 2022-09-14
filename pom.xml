@@ -139,7 +139,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- Keep slf4j/logback on proper release -->
-        <logback.version>1.2.11</logback.version>
+        <logback.version>1.4.1</logback.version>
         <slf4j.version>2.0.1</slf4j.version>
 
         <!-- Plugin Artifacts -->
