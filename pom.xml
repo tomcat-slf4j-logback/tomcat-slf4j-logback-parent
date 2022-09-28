@@ -377,6 +377,9 @@
                     <artifactId>maven-javadoc-plugin</artifactId>
                     <version>3.4.1</version>
                     <configuration>
+                        <additionalOptions>
+                            <option>-html5</option>
+                        </additionalOptions>
                         <archive>
                             <manifest>
                                 <addBuildEnvironmentEntries>false</addBuildEnvironmentEntries>
@@ -396,6 +399,10 @@
                                 <X-Compile-Release-JDK>${maven.compiler.release}</X-Compile-Release-JDK>
                             </manifestEntries>
                         </archive>
+                        <notimestamp>true</notimestamp>
+                        <quiet>true</quiet>
+                        <release>${javadoc.java.release.version}</release>
+                        <source>${javadoc.java.release.version}</source>
                     </configuration>
                 </plugin>
 
