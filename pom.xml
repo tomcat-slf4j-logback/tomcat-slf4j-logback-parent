@@ -140,7 +140,7 @@
 
         <!-- Keep slf4j/logback on proper release -->
         <logback.version>1.4.1</logback.version>
-        <slf4j.version>2.0.2</slf4j.version>
+        <slf4j.version>2.0.3</slf4j.version>
 
         <!-- Plugin Artifacts -->
         <plexus-utils.version>3.4.2</plexus-utils.version>
