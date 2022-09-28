@@ -126,23 +126,55 @@
     </scm>
 
     <properties>
+        <!-- Copyright -->
         <copyright>2022</copyright>
+
+        <!-- Github Token -->
         <github.global.server>github</github.global.server>
 
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
+        <!-- Automatic Module Name -->
+        <module.name>com.github.tomcat.slf4j.logback.parent</module.name>
+
+        <!-- Maven compiler options -->
+        <java.version>8</java.version>
+        <java.release.version>8</java.release.version>
+        <java.test.version>${java.version}</java.test.version>
+        <java.test.release.version>${java.release.version}</java.test.release.version>
+
+        <!-- Javadoc Release is strict due to maven bug and automatic module naming; it needs extra help, see examples -->
+        <javadoc.java.release.version>8</javadoc.java.release.version>
+
+        <!-- Legacy compiler options source/target not really needed now (but still used by things like sonar, m2e) -->
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven.compiler.testSource>${java.test.version}</maven.compiler.testSource>
+        <maven.compiler.testTarget>${java.test.version}</maven.compiler.testTarget>
+
+        <maven.compiler.release>${java.release.version}</maven.compiler.release>
+        <maven.compiler.testRelease>${java.test.release.version}</maven.compiler.testRelease>
+
         <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
-        <maven.min-version>3.8.4</maven.min-version>
+        <maven.min-version>3.8.6</maven.min-version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
+        <!-- Reproducible Builds -->
+        <project.build.outputTimestamp>1657151022</project.build.outputTimestamp>
+
+        <!-- Due to maven bug, fix timestamp -->
+        <timestamp>${maven.build.timestamp}</timestamp>
+
+        <!-- Enforcer Jdks Allowed -->
+        <allowed.build.jdks>11,17,19,20,21</allowed.build.jdks>
+
         <!-- Keep slf4j/logback on proper release -->
-        <logback.version>1.4.1</logback.version>
+        <logback.version>1.3.1</logback.version>
         <slf4j.version>2.0.3</slf4j.version>
 
         <!-- Plugin Artifacts -->
+        <extra-enforcer-rules.version>1.6.1</extra-enforcer-rules.version>
         <plexus-utils.version>3.4.2</plexus-utils.version>
         <scm.version>2.0.0-M2</scm.version>
         <wagon.version>3.5.2</wagon.version>
@@ -197,47 +229,6 @@
     </dependencies>
 
     <profiles>
-         <profile>
-            <id>eclipse</id>
-            <activation>
-                <property>
-                    <name>m2e.version</name>
-                </property>
-            </activation>
-            <build>
-                <pluginManagement>
-                    <plugins>
-                        <!--This plugin's configuration is used to store 
-                            Eclipse m2e settings only. It has no influence on the Maven build itself. -->
-                        <plugin>
-                            <groupId>org.eclipse.m2e</groupId>
-                            <artifactId>lifecycle-mapping</artifactId>
-                            <version>1.0.0</version>
-                            <configuration>
-                                <lifecycleMappingMetadata>
-                                    <pluginExecutions>
-                                        <pluginExecution>
-                                            <pluginExecutionFilter>
-                                                <groupId>org.apache.maven.plugins</groupId>
-                                                <artifactId>maven-enforcer-plugin</artifactId>
-                                                <versionRange>[3.0.0,)</versionRange>
-                                                <goals>
-                                                    <goal>enforce</goal>
-                                                </goals>
-                                            </pluginExecutionFilter>
-                                            <action>
-                                                <ignore />
-                                            </action>
-                                        </pluginExecution>
-                                    </pluginExecutions>
-                                </lifecycleMappingMetadata>
-                            </configuration>
-                        </plugin>
-                    </plugins>
-                </pluginManagement>
-            </build>
-        </profile>
-
         <profile>
             <id>release</id>
             <build>
@@ -296,7 +287,7 @@
                         <dependency>
                             <groupId>org.apache.maven.scm</groupId>
                             <artifactId>maven-scm-provider-jgit</artifactId>
-                            <version>1.13.0</version>
+                            <version>2.0.0-M2</version>
                         </dependency>
                     </dependencies>
                     <configuration>
@@ -339,11 +330,25 @@
                     <version>3.1.0</version>
                     <configuration>
                         <rules>
+                            <enforceBytecodeVersion>
+                                <maxJdkVersion>${java.version}</maxJdkVersion>
+                            </enforceBytecodeVersion>
+                            <requireJavaVersion>
+                                <version>${allowed.build.jdks}</version>
+                            </requireJavaVersion>
                             <requireMavenVersion>
+                                <message>Please upgrade maven and configure 'M2_HOME'.</message>
                                 <version>[${maven.min-version},)</version>
                             </requireMavenVersion>
                         </rules>
                     </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.codehaus.mojo</groupId>
+                            <artifactId>extra-enforcer-rules</artifactId>
+                            <version>${extra-enforcer-rules.version}</version>
+                        </dependency>
+                    </dependencies>
                 </plugin>
 
                 <plugin>
@@ -365,22 +370,21 @@
                     <configuration>
                         <archive>
                             <manifest>
+                                <addBuildEnvironmentEntries>false</addBuildEnvironmentEntries>
                                 <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                                 <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                             </manifest>
                             <manifestEntries>
-                                <Build-Time>${maven.build.timestamp}</Build-Time>
+                                <Automatic-Module-Name>${module.name}</Automatic-Module-Name>
                                 <copyright>${copyright}</copyright>
                                 <!-- Git Commit Id property is auto generated -->
                                 <Git-Revision>${git.commit.id}</Git-Revision>
                                 <Tomcat-Classloader-Version>${tomcat.version}</Tomcat-Classloader-Version>
                                 <Slf4j-Version>${slf4j.version}</Slf4j-Version>
                                 <Logback-Version>${logback.version}</Logback-Version>
-                                <Os-Name>${os.name}</Os-Name>
-                                <Os-Arch>${os.arch}</Os-Arch>
-                                <Os-Version>${os.version}</Os-Version>
                                 <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
                                 <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
+                                <X-Compile-Release-JDK>${maven.compiler.release}</X-Compile-Release-JDK>
                             </manifestEntries>
                         </archive>
                     </configuration>
@@ -391,26 +395,32 @@
                     <artifactId>maven-javadoc-plugin</artifactId>
                     <version>3.4.1</version>
                     <configuration>
+                        <additionalOptions>
+                            <option>-html5</option>
+                        </additionalOptions>
                         <archive>
                             <manifest>
+                                <addBuildEnvironmentEntries>false</addBuildEnvironmentEntries>
                                 <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                                 <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                             </manifest>
                             <manifestEntries>
-                                <Build-Time>${maven.build.timestamp}</Build-Time>
+                                <Automatic-Module-Name>${module.name}</Automatic-Module-Name>
                                 <copyright>${copyright}</copyright>
                                 <!-- Git Commit Id property is auto generated -->
                                 <Git-Revision>${git.commit.id}</Git-Revision>
                                 <Tomcat-Classloader-Version>${tomcat.version}</Tomcat-Classloader-Version>
                                 <Slf4j-Version>${slf4j.version}</Slf4j-Version>
                                 <Logback-Version>${logback.version}</Logback-Version>
-                                <Os-Name>${os.name}</Os-Name>
-                                <Os-Arch>${os.arch}</Os-Arch>
-                                <Os-Version>${os.version}</Os-Version>
                                 <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
                                 <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
+                                <X-Compile-Release-JDK>${maven.compiler.release}</X-Compile-Release-JDK>
                             </manifestEntries>
                         </archive>
+                        <notimestamp>true</notimestamp>
+                        <quiet>true</quiet>
+                        <release>${javadoc.java.release.version}</release>
+                        <source>${javadoc.java.release.version}</source>
                     </configuration>
                 </plugin>
 
@@ -494,22 +504,21 @@
                     <configuration>
                         <archive>
                             <manifest>
+                                <addBuildEnvironmentEntries>false</addBuildEnvironmentEntries>
                                 <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                                 <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                             </manifest>
                             <manifestEntries>
-                                <Build-Time>${maven.build.timestamp}</Build-Time>
-                                <copyright>${copyright}</copyright>
+                                <Automatic-Module-Name>${module.name}</Automatic-Module-Name>
+                                <Copyright>${copyright}</Copyright>
                                 <!-- Git Commit Id property is auto generated -->
                                 <Git-Revision>${git.commit.id}</Git-Revision>
                                 <Tomcat-Classloader-Version>${tomcat.version}</Tomcat-Classloader-Version>
                                 <Slf4j-Version>${slf4j.version}</Slf4j-Version>
                                 <Logback-Version>${logback.version}</Logback-Version>
-                                <Os-Name>${os.name}</Os-Name>
-                                <Os-Arch>${os.arch}</Os-Arch>
-                                <Os-Version>${os.version}</Os-Version>
                                 <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
                                 <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
+                                <X-Compile-Release-JDK>${maven.compiler.release}</X-Compile-Release-JDK>
                             </manifestEntries>
                         </archive>
                     </configuration>
@@ -528,9 +537,9 @@
                 </plugin>
 
                 <plugin>
-                    <groupId>pl.project13.maven</groupId>
-                    <artifactId>git-commit-id-plugin</artifactId>
-                    <version>4.9.10</version>
+                    <groupId>io.github.git-commit-id</groupId>
+                    <artifactId>git-commit-id-maven-plugin</artifactId>
+                    <version>5.0.0</version>
                     <configuration>
                         <failOnNoGitDirectory>false</failOnNoGitDirectory>
                         <!-- Fixes occasional issue in commit id plugin - see https://github.com/ktoso/maven-git-commit-id-plugin/issues/61 -->
@@ -544,7 +553,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-scm-plugin</artifactId>
-                    <version>1.13.0</version>
+                    <version>2.0.0-M2</version>
                     <dependencies>
                         <dependency>
                             <groupId>org.eclipse.jgit</groupId>
@@ -554,7 +563,7 @@
                         <dependency>
                             <groupId>org.apache.maven.scm</groupId>
                             <artifactId>maven-scm-provider-jgit</artifactId>
-                            <version>1.13.0</version>
+                            <version>2.0.0-M2</version>
                         </dependency>
                     </dependencies>
                 </plugin>
@@ -625,8 +634,8 @@
             </plugin>
 
             <plugin>
-                <groupId>pl.project13.maven</groupId>
-                <artifactId>git-commit-id-plugin</artifactId>
+                <groupId>io.github.git-commit-id</groupId>
+                <artifactId>git-commit-id-maven-plugin</artifactId>
                 <executions>
                     <execution>
                         <id>git-commit-id</id>
