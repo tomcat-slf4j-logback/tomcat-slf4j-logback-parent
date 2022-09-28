@@ -171,6 +171,7 @@
         <slf4j.version>2.0.3</slf4j.version>
 
         <!-- Plugin Artifacts -->
+        <extra-enforcer-rules.version>1.6.1</extra-enforcer-rules.version>
         <plexus-utils.version>3.4.2</plexus-utils.version>
         <scm.version>2.0.0-M2</scm.version>
         <wagon.version>3.5.2</wagon.version>
@@ -326,11 +327,25 @@
                     <version>3.1.0</version>
                     <configuration>
                         <rules>
+                            <enforceBytecodeVersion>
+                                <maxJdkVersion>${java.version}</maxJdkVersion>
+                            </enforceBytecodeVersion>
+                            <requireJavaVersion>
+                                <version>${allowed.build.jdks}</version>
+                            </requireJavaVersion>
                             <requireMavenVersion>
+                                <message>Please upgrade maven and configure 'M2_HOME'.</message>
                                 <version>[${maven.min-version},)</version>
                             </requireMavenVersion>
                         </rules>
                     </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.codehaus.mojo</groupId>
+                            <artifactId>extra-enforcer-rules</artifactId>
+                            <version>${extra-enforcer-rules.version}</version>
+                        </dependency>
+                    </dependencies>
                 </plugin>
 
                 <plugin>
