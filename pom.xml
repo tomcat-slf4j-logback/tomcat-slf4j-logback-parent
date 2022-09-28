@@ -126,11 +126,33 @@
     </scm>
 
     <properties>
+        <!-- Copyright -->
         <copyright>2022</copyright>
+
+        <!-- Github Token -->
         <github.global.server>github</github.global.server>
 
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
+        <!-- Automatic Module Name -->
+        <module.name>com.github.tomcat.slf4j.logback.parent</module.name>
+
+        <!-- Maven compiler options -->
+        <java.version>8</java.version>
+        <java.release.version>8</java.release.version>
+        <java.test.version>${java.version}</java.test.version>
+        <java.test.release.version>${java.release.version}</java.test.release.version>
+
+        <!-- Javadoc Release is strict due to maven bug and automatic module naming; it needs extra help, see examples -->
+        <javadoc.java.release.version>8</javadoc.java.release.version>
+
+        <!-- Legacy compiler options source/target not really needed now (but still used by things like sonar, m2e) -->
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven.compiler.testSource>${java.test.version}</maven.compiler.testSource>
+        <maven.compiler.testTarget>${java.test.version}</maven.compiler.testTarget>
+
+        <maven.compiler.release>${java.release.version}</maven.compiler.release>
+        <maven.compiler.testRelease>${java.test.release.version}</maven.compiler.testRelease>
+
         <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
         <maven.min-version>3.8.6</maven.min-version>
 
@@ -344,6 +366,7 @@
                                 <Logback-Version>${logback.version}</Logback-Version>
                                 <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
                                 <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
+                                <X-Compile-Release-JDK>${maven.compiler.release}</X-Compile-Release-JDK>
                             </manifestEntries>
                         </archive>
                     </configuration>
@@ -370,6 +393,7 @@
                                 <Logback-Version>${logback.version}</Logback-Version>
                                 <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
                                 <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
+                                <X-Compile-Release-JDK>${maven.compiler.release}</X-Compile-Release-JDK>
                             </manifestEntries>
                         </archive>
                     </configuration>
@@ -469,6 +493,7 @@
                                 <Logback-Version>${logback.version}</Logback-Version>
                                 <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
                                 <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
+                                <X-Compile-Release-JDK>${maven.compiler.release}</X-Compile-Release-JDK>
                             </manifestEntries>
                         </archive>
                     </configuration>
