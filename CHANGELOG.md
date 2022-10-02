@@ -1,6 +1,12 @@
 Notable Changes
 ---------------
 
+Release 1.4.0
+
+ - Requires java 8 now
+ - Slf4j 2.x
+ - Logback 1.3.x
+
 Release 1.3.0
 
  - Make original dependencies optional so they do not show up when using maven artifacts.
