@@ -175,7 +175,7 @@
 
         <!-- Plugin Artifacts -->
         <extra-enforcer-rules.version>1.6.1</extra-enforcer-rules.version>
-        <plexus-utils.version>3.4.2</plexus-utils.version>
+        <plexus-utils.version>3.5.0</plexus-utils.version>
         <scm.version>2.0.0-M2</scm.version>
         <wagon.version>3.5.2</wagon.version>
     </properties>
