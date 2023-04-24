@@ -273,28 +273,6 @@
                     <artifactId>build-helper-maven-plugin</artifactId>
                     <version>3.3.0</version>
                 </plugin>
-                
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-changes-plugin</artifactId>
-                    <version>2.12.1</version>
-                    <dependencies>
-                        <dependency>
-                            <groupId>org.eclipse.jgit</groupId>
-                            <artifactId>org.eclipse.jgit</artifactId>
-                            <version>6.5.0.202303070854-r</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>org.apache.maven.scm</groupId>
-                            <artifactId>maven-scm-provider-jgit</artifactId>
-                            <version>2.0.0</version>
-                        </dependency>
-                    </dependencies>
-                    <configuration>
-                        <githubAPIScheme>https</githubAPIScheme>
-                        <githubAPIPort>443</githubAPIPort>
-                    </configuration>
-                </plugin>
 
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -704,18 +682,6 @@
 
     <reporting>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-changes-plugin</artifactId>
-                <reportSets>
-                    <reportSet>
-                        <reports>
-                            <report>github-report</report>
-                        </reports>
-                    </reportSet>
-                </reportSets>
-            </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-project-info-reports-plugin</artifactId>
