@@ -548,12 +548,12 @@
                                     <exclude>**/LICENSE-tomcat.txt</exclude>
                                     <exclude>**/server.xml</exclude>
                                 </excludes>
-                                <mapping>
-                                    <conf>DOUBLESLASH_STYLE</conf>
-                                    <policy>DOUBLESLASH_STYLE</policy>
-                                </mapping>
-                            </licenseSet>
+                             </licenseSet>
                         </licenseSets>
+                        <mapping>
+                            <conf>DOUBLESLASH_STYLE</conf>
+                            <policy>DOUBLESLASH_STYLE</policy>
+                        </mapping> 
                     </configuration>
                     <dependencies>
                         <dependency>
