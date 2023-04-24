@@ -167,7 +167,7 @@
         <timestamp>${maven.build.timestamp}</timestamp>
 
         <!-- Enforcer Jdks Allowed -->
-        <allowed.build.jdks>11,17,19,20,21</allowed.build.jdks>
+        <allowed.build.jdks>[11,12),[17,18),[20,21),[21,22)</allowed.build.jdks>
 
         <!-- Keep slf4j/logback on proper release -->
         <logback.version>1.3.4</logback.version>
