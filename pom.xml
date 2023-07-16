@@ -465,7 +465,6 @@
                     <version>3.2.1</version>
                     <configuration>
                         <checkoutDirectory>${user.home}/maven-sites/${project.name}</checkoutDirectory>
-                        <!-- TODO: Review this, seems only appropriate for a single module project, but maybe release acts different as psi probe has all the staged modules...but those may be from remote git checkout -->
                         <!-- no need for site:stage, use target/site or target/checkout/target/site on release -->
                         <content>${project.reporting.outputDirectory}</content>
                         <scmBranch>gh-pages</scmBranch>
