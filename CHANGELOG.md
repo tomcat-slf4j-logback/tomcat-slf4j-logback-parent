@@ -1,6 +1,17 @@
 Notable Changes
 ---------------
 
+## Generally noted here but using github releases now ##
+
+Release 1.6.0
+
+- Drop slf4j/logback from definitions as downstreams need and renovate won't update otherwise downstream
+- Prepare for logstash/jackson addition
+
+Release 1.5.0
+
+- General updates
+
 Release 1.4.0
 
  - Requires java 8 now
