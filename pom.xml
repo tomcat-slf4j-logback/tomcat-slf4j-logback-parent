@@ -512,9 +512,11 @@
                             <licenseSet>
                                 <header>LICENSE_HEADER</header>
                                 <excludes>
+                                    <exclude>**/LICENSE-jackson.txt</exclude>
                                     <exclude>**/LICENSE-logback.txt</exclude>
                                     <exclude>**/LICENSE-slf4j.txt</exclude>
                                     <exclude>**/LICENSE-tomcat.txt</exclude>
+                                    <exclude>**/NOTICET-jackson.txt</exclude>
                                     <exclude>**/server.xml</exclude>
                                 </excludes>
                              </licenseSet>
