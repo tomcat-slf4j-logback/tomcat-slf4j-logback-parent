@@ -523,6 +523,7 @@
                                     <exclude>**/LICENSE-slf4j.txt</exclude>
                                     <exclude>**/LICENSE-tomcat.txt</exclude>
                                     <exclude>**/NOTICE-jackson.txt</exclude>
+                                    <exclude>**/NOTICE-tomcat.txt</exclude>
                                     <exclude>**/server.xml</exclude>
                                 </excludes>
                              </licenseSet>
