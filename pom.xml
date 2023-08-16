@@ -328,6 +328,8 @@
                                 <copyright>${copyright}</copyright>
                                 <!-- Git Commit Id property is auto generated -->
                                 <Git-Revision>${git.commit.id}</Git-Revision>
+                                <Jackson-version>${jackson.version}</Jackson-version>
+                                <Logstash-Version>${logstash.version}</Logstash-Version>
                                 <Tomcat-Classloader-Version>${tomcat.version}</Tomcat-Classloader-Version>
                                 <Slf4j-Version>${slf4j.version}</Slf4j-Version>
                                 <Logback-Version>${logback.version}</Logback-Version>
@@ -358,6 +360,8 @@
                                 <copyright>${copyright}</copyright>
                                 <!-- Git Commit Id property is auto generated -->
                                 <Git-Revision>${git.commit.id}</Git-Revision>
+                                <Jackson-version>${jackson.version}</Jackson-version>
+                                <Logstash-Version>${logstash.version}</Logstash-Version>
                                 <Tomcat-Classloader-Version>${tomcat.version}</Tomcat-Classloader-Version>
                                 <Slf4j-Version>${slf4j.version}</Slf4j-Version>
                                 <Logback-Version>${logback.version}</Logback-Version>
@@ -466,6 +470,8 @@
                                 <Copyright>${copyright}</Copyright>
                                 <!-- Git Commit Id property is auto generated -->
                                 <Git-Revision>${git.commit.id}</Git-Revision>
+                                <Jackson-version>${jackson.version}</Jackson-version>
+                                <Logstash-Version>${logstash.version}</Logstash-Version>
                                 <Tomcat-Classloader-Version>${tomcat.version}</Tomcat-Classloader-Version>
                                 <Slf4j-Version>${slf4j.version}</Slf4j-Version>
                                 <Logback-Version>${logback.version}</Logback-Version>
