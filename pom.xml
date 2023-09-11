@@ -171,7 +171,7 @@
         <allowed.build.jdks>[11,12),[17,18),[20,21),[21,22)</allowed.build.jdks>
 
         <!-- Parent Tracking on site -->
-        <tomcat-slf4j-logback-parent.version>1.5.2-SNAPSHOT</tomcat-slf4j-logback-parent.version>
+        <tomcat-slf4j-logback-parent.version>1.6.0-SNAPSHOT</tomcat-slf4j-logback-parent.version>
 
         <!-- Plugin Artifacts -->
         <extra-enforcer-rules.version>1.7.0</extra-enforcer-rules.version>
