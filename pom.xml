@@ -18,7 +18,7 @@
 
     <groupId>com.github.tomcat-slf4j-logback</groupId>
     <artifactId>tomcat-slf4j-logback-parent</artifactId>
-    <version>1.5.2-SNAPSHOT</version>
+    <version>1.6.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>tomcat-slf4j-logback-parent</name>
@@ -155,7 +155,7 @@
         <maven.compiler.testRelease>${java.test.release.version}</maven.compiler.testRelease>
 
         <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
-        <maven.min-version>3.9.3</maven.min-version>
+        <maven.min-version>3.9.4</maven.min-version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
@@ -173,61 +173,9 @@
         <!-- Parent Tracking on site -->
         <tomcat-slf4j-logback-parent.version>1.5.2-SNAPSHOT</tomcat-slf4j-logback-parent.version>
 
-        <!-- Keep slf4j/logback on proper release -->
-        <logback.version>1.3.8</logback.version>
-        <slf4j.version>2.0.9</slf4j.version>
-
         <!-- Plugin Artifacts -->
         <extra-enforcer-rules.version>1.7.0</extra-enforcer-rules.version>
     </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>${slf4j.version}</version>
-            <scope>compile</scope>
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>jcl-over-slf4j</artifactId>
-            <version>${slf4j.version}</version>
-            <scope>compile</scope>
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-core</artifactId>
-            <version>${logback.version}</version>
-            <scope>compile</scope>
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>${logback.version}</version>
-            <scope>compile</scope>
-            <optional>true</optional>
-            <exclusions>
-                 <exclusion>
-                      <groupId>com.sun.mail</groupId>
-                      <artifactId>javax.mail</artifactId>
-                 </exclusion>
-            </exclusions>
-        </dependency>
-
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-access</artifactId>
-            <version>${logback.version}</version>
-            <scope>compile</scope>
-            <optional>true</optional>
-        </dependency>
-    </dependencies>
 
     <profiles>
         <profile>
@@ -380,6 +328,8 @@
                                 <copyright>${copyright}</copyright>
                                 <!-- Git Commit Id property is auto generated -->
                                 <Git-Revision>${git.commit.id}</Git-Revision>
+                                <Jackson-version>${jackson.version}</Jackson-version>
+                                <Logstash-Version>${logstash.version}</Logstash-Version>
                                 <Tomcat-Classloader-Version>${tomcat.version}</Tomcat-Classloader-Version>
                                 <Slf4j-Version>${slf4j.version}</Slf4j-Version>
                                 <Logback-Version>${logback.version}</Logback-Version>
@@ -410,6 +360,8 @@
                                 <copyright>${copyright}</copyright>
                                 <!-- Git Commit Id property is auto generated -->
                                 <Git-Revision>${git.commit.id}</Git-Revision>
+                                <Jackson-version>${jackson.version}</Jackson-version>
+                                <Logstash-Version>${logstash.version}</Logstash-Version>
                                 <Tomcat-Classloader-Version>${tomcat.version}</Tomcat-Classloader-Version>
                                 <Slf4j-Version>${slf4j.version}</Slf4j-Version>
                                 <Logback-Version>${logback.version}</Logback-Version>
@@ -518,6 +470,8 @@
                                 <Copyright>${copyright}</Copyright>
                                 <!-- Git Commit Id property is auto generated -->
                                 <Git-Revision>${git.commit.id}</Git-Revision>
+                                <Jackson-version>${jackson.version}</Jackson-version>
+                                <Logstash-Version>${logstash.version}</Logstash-Version>
                                 <Tomcat-Classloader-Version>${tomcat.version}</Tomcat-Classloader-Version>
                                 <Slf4j-Version>${slf4j.version}</Slf4j-Version>
                                 <Logback-Version>${logback.version}</Logback-Version>
@@ -564,9 +518,12 @@
                             <licenseSet>
                                 <header>LICENSE_HEADER</header>
                                 <excludes>
+                                    <exclude>**/LICENSE-jackson.txt</exclude>
                                     <exclude>**/LICENSE-logback.txt</exclude>
                                     <exclude>**/LICENSE-slf4j.txt</exclude>
                                     <exclude>**/LICENSE-tomcat.txt</exclude>
+                                    <exclude>**/NOTICE-jackson.txt</exclude>
+                                    <exclude>**/NOTICE-tomcat.txt</exclude>
                                     <exclude>**/server.xml</exclude>
                                 </excludes>
                              </licenseSet>
