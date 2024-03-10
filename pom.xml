@@ -174,7 +174,7 @@
         <tomcat-slf4j-logback-parent.version>1.6.2-SNAPSHOT</tomcat-slf4j-logback-parent.version>
 
         <!-- Plugin Artifacts -->
-        <extra-enforcer-rules.version>1.7.0</extra-enforcer-rules.version>
+        <extra-enforcer-rules.version>1.8.0</extra-enforcer-rules.version>
     </properties>
 
     <build>
