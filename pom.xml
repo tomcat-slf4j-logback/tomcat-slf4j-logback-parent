@@ -155,7 +155,7 @@
         <maven.compiler.testRelease>${java.test.release.version}</maven.compiler.testRelease>
 
         <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
-        <maven.min-version>3.9.6</maven.min-version>
+        <maven.min-version>3.9.8</maven.min-version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
