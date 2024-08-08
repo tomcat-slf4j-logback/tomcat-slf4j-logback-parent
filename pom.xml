@@ -18,7 +18,7 @@
 
     <groupId>com.github.tomcat-slf4j-logback</groupId>
     <artifactId>tomcat-slf4j-logback-parent</artifactId>
-    <version>1.6.3-SNAPSHOT</version>
+    <version>1.6.3</version>
     <packaging>pom</packaging>
 
     <name>tomcat-slf4j-logback-parent</name>
@@ -123,7 +123,7 @@
         <connection>scm:git:ssh://git@github.com/tomcat-slf4j-logback/tomcat-slf4j-logback-parent.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/tomcat-slf4j-logback/tomcat-slf4j-logback-parent.git</developerConnection>
         <url>https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback-parent</url>
-        <tag>tomcat-slf4j-logback-parent-1.6.0</tag>
+        <tag>tomcat-slf4j-logback-parent-1.6.3</tag>
     </scm>
 
     <properties>
@@ -162,7 +162,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- Reproducible Builds -->
-        <project.build.outputTimestamp>1714533055</project.build.outputTimestamp>
+        <project.build.outputTimestamp>1723160214</project.build.outputTimestamp>
 
         <!-- Due to maven bug, fix timestamp -->
         <timestamp>${maven.build.timestamp}</timestamp>
