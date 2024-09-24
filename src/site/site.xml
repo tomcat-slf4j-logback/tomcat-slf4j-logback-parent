@@ -15,7 +15,7 @@
 <site name="${project.name}" xmlns="http://maven.apache.org/SITE/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/SITE/2.0.0 https://maven.apache.org/xsd/site-2.0.0.xsd">
     <bannerLeft href="https://tomcat.apache.org/">
-        <images src="https://tomcat.apache.org/images/tomcat.png" />
+        <image src="https://tomcat.apache.org/images/tomcat.png" />
     </bannerLeft>
     <bannerRight hreg="https://logback.qos.ch/">
         <image src="https://logback.qos.ch/images/logos/lblogo.jpg" />
