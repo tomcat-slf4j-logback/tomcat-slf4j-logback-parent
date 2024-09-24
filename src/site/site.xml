@@ -17,7 +17,7 @@
     <bannerLeft href="https://tomcat.apache.org/">
         <image src="https://tomcat.apache.org/images/tomcat.png" />
     </bannerLeft>
-    <bannerRight hreg="https://logback.qos.ch/">
+    <bannerRight href="https://logback.qos.ch/">
         <image src="https://logback.qos.ch/images/logos/lblogo.jpg" />
     </bannerRight>
     <skin>
