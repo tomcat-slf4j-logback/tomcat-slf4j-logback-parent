@@ -495,6 +495,20 @@
                     </dependencies>
                 </plugin>
 
+                <plugin>
+                    <groupId>com.github.ekryd.sortpom</groupId>
+                    <artifactId>sortpom-maven-plugin</artifactId>
+                    <version>4.0.0</version>
+                    <configuration>
+                        <createBackupFile>false</createBackupFile>
+                        <expandEmptyElements>false</expandEmptyElements>
+                        <keepBlankLines>true</keepBlankLines>
+                        <nrOfIndentSpace>4</nrOfIndentSpace>
+                        <predefinedSortOrder>recommended_2008_06</predefinedSortOrder>
+                        <spaceBeforeCloseEmptyElement>true</spaceBeforeCloseEmptyElement>
+                    </configuration>
+                </plugin>
+
                 <!-- Sonatype Provided Plugins -->
                 <plugin>
                     <groupId>org.sonatype.central</groupId>
@@ -585,6 +599,19 @@
                         <goals>
                             <goal>jar-no-fork</goal>
                         </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>com.github.ekryd.sortpom</groupId>
+                <artifactId>sortpom-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>sort</goal>
+                        </goals>
+                        <phase>verify</phase>
                     </execution>
                 </executions>
             </plugin>
