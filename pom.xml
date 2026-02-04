@@ -3,7 +3,7 @@
 
     Tomcat-Slf4j-Logback-Parent (https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback-parent/)
 
-    Copyright (c) 2010-2025 Tomcat-Slf4j-Logback.
+    Copyright (c) 2010-2026 Tomcat-Slf4j-Logback.
 
     All rights reserved. This program and the accompanying materials are made available under the
     terms of the Eclipse Public License v1.0 which accompanies this distribution, and is available
@@ -31,6 +31,32 @@
         <name>tomcat-slf4j-logback</name>
         <url>https://github.com/tomcat-slf4j-logback/</url>
     </organization>
+
+    <licenses>
+        <license>
+            <name>Eclipse Public License, 1.0</name>
+            <url>https://raw.githubusercontent.com/tomcat-slf4j-logback/tomcat-slf4j-logback-parent/refs/heads/master/LICENSE</url>
+            <distribution>repo</distribution>
+        </license>
+        <license>
+            <name>Tomcat, Jackson, and Logstash License</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>manual</distribution>
+            <comments>A business-friendly OSS license</comments>
+        </license>
+        <license>
+            <name>Logback License</name>
+            <url>https://logback.qos.ch/license.html</url>
+            <distribution>manual</distribution>
+            <comments>Dual-licensed under the EPL v1.0 and the LGPL 2.1</comments>
+        </license>
+        <license>
+            <name>Slf4j License</name>
+            <url>http://slf4j.org/license.html</url>
+            <distribution>manual</distribution>
+            <comments>MIT license</comments>
+        </license>
+    </licenses>
 
     <developers>
         <developer>
@@ -66,6 +92,13 @@
         </developer>
     </developers>
 
+    <scm>
+        <connection>scm:git:ssh://git@github.com/tomcat-slf4j-logback/tomcat-slf4j-logback-parent.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/tomcat-slf4j-logback/tomcat-slf4j-logback-parent.git</developerConnection>
+        <tag>HEAD</tag>
+        <url>https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback-parent</url>
+    </scm>
+
     <issueManagement>
         <system>GitHub</system>
         <url>https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback-parent/issues</url>
@@ -76,49 +109,16 @@
     </ciManagement>
 
     <distributionManagement>
+        <snapshotRepository>
+            <id>central</id>
+            <url>https://central.sonatype.com/repository/maven-snapshots/</url>
+        </snapshotRepository>
         <site>
             <id>gh-pages-scm</id>
             <name>Tomcat Slf4j Logback Parent GitHub Pages</name>
             <url>scm:git:ssh://git@github.com/tomcat-slf4j-logback/tomcat-slf4j-logback-parent.git</url>
         </site>
-        <snapshotRepository>
-            <id>central</id>
-            <url>https://central.sonatype.com/repository/maven-snapshots/</url>
-        </snapshotRepository>
     </distributionManagement>
-
-    <licenses>
-        <license>
-            <name>Eclipse Public License, 1.0</name>
-            <url>https://raw.githubusercontent.com/tomcat-slf4j-logback/tomcat-slf4j-logback-parent/refs/heads/master/LICENSE</url>
-            <distribution>repo</distribution>
-        </license>
-        <license>
-            <name>Tomcat, Jackson, and Logstash License</name>
-            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
-            <distribution>manual</distribution>
-            <comments>A business-friendly OSS license</comments>
-        </license>
-        <license>
-            <name>Logback License</name>
-            <url>https://logback.qos.ch/license.html</url>
-            <distribution>manual</distribution>
-            <comments>Dual-licensed under the EPL v1.0 and the LGPL 2.1</comments>
-        </license>
-        <license>
-            <name>Slf4j License</name>
-            <url>http://slf4j.org/license.html</url>
-            <distribution>manual</distribution>
-            <comments>MIT license</comments>
-        </license>
-    </licenses>
-
-    <scm>
-        <connection>scm:git:ssh://git@github.com/tomcat-slf4j-logback/tomcat-slf4j-logback-parent.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com/tomcat-slf4j-logback/tomcat-slf4j-logback-parent.git</developerConnection>
-        <url>https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback-parent</url>
-        <tag>HEAD</tag>
-    </scm>
 
     <properties>
         <!-- Copyright -->
@@ -393,7 +393,7 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-site-plugin</artifactId>
                     <version>3.21.0</version>
-                   <configuration>
+                    <configuration>
                         <!-- don't deploy site with maven-site-plugin (instead use scm publish during release) -->
                         <skipDeploy>true</skipDeploy>
                     </configuration>
@@ -467,7 +467,7 @@
                     <artifactId>license-maven-plugin</artifactId>
                     <version>5.0.0</version>
                     <configuration>
-                         <licenseSets>
+                        <licenseSets>
                             <licenseSet>
                                 <header>LICENSE_HEADER</header>
                                 <excludes>
@@ -479,12 +479,12 @@
                                     <exclude>**/NOTICE-tomcat.txt</exclude>
                                     <exclude>**/server.xml</exclude>
                                 </excludes>
-                             </licenseSet>
+                            </licenseSet>
                         </licenseSets>
                         <mapping>
                             <conf>DOUBLESLASH_STYLE</conf>
                             <policy>DOUBLESLASH_STYLE</policy>
-                        </mapping> 
+                        </mapping>
                     </configuration>
                     <dependencies>
                         <dependency>
@@ -528,10 +528,10 @@
                 <artifactId>license-maven-plugin</artifactId>
                 <executions>
                     <execution>
-                        <phase>compile</phase>
                         <goals>
                             <goal>format</goal>
                         </goals>
+                        <phase>compile</phase>
                     </execution>
                 </executions>
             </plugin>
@@ -562,17 +562,17 @@
                     </execution>
                     <execution>
                         <id>enforce-clean</id>
-                        <phase>pre-clean</phase>
                         <goals>
                             <goal>enforce</goal>
                         </goals>
+                        <phase>pre-clean</phase>
                     </execution>
                     <execution>
                         <id>enforce-site</id>
-                        <phase>pre-site</phase>
                         <goals>
                             <goal>enforce</goal>
                         </goals>
+                        <phase>pre-site</phase>
                     </execution>
                 </executions>
             </plugin>
@@ -649,10 +649,10 @@
                         <executions>
                             <execution>
                                 <id>sign-artifacts</id>
-                                <phase>verify</phase>
                                 <goals>
                                     <goal>sign</goal>
                                 </goals>
+                                <phase>verify</phase>
                             </execution>
                         </executions>
                     </plugin>
