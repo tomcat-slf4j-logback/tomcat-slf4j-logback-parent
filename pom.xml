@@ -89,7 +89,7 @@
 
     <licenses>
         <license>
-            <name>Eclipse Public License</name>
+            <name>Eclipse Public License, 1.0</name>
             <url>https://raw.githubusercontent.com/tomcat-slf4j-logback/tomcat-slf4j-logback-parent/refs/heads/master/LICENSE</url>
             <distribution>repo</distribution>
         </license>
@@ -122,7 +122,7 @@
 
     <properties>
         <!-- Copyright -->
-        <copyright>2025</copyright>
+        <copyright>2026</copyright>
 
         <!-- Github Token -->
         <github.global.server>github</github.global.server>
@@ -149,7 +149,7 @@
         <maven.compiler.testRelease>${java.test.release.version}</maven.compiler.testRelease>
 
         <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
-        <maven.min-version>3.9.11</maven.min-version>
+        <maven.min-version>3.9.12</maven.min-version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
@@ -162,7 +162,7 @@
         <timestamp>${maven.build.timestamp}</timestamp>
 
         <!-- Enforcer Jdks Allowed -->
-        <allowed.build.jdks>[21,22),[25,26),[26,27)</allowed.build.jdks>
+        <allowed.build.jdks>[21,22),[25,26),[26,27),[27,28)</allowed.build.jdks>
 
         <!-- Plugin Artifacts -->
         <extra-enforcer-rules.version>1.11.0</extra-enforcer-rules.version>
@@ -495,6 +495,20 @@
                     </dependencies>
                 </plugin>
 
+                <plugin>
+                    <groupId>com.github.ekryd.sortpom</groupId>
+                    <artifactId>sortpom-maven-plugin</artifactId>
+                    <version>4.0.0</version>
+                    <configuration>
+                        <createBackupFile>false</createBackupFile>
+                        <expandEmptyElements>false</expandEmptyElements>
+                        <keepBlankLines>true</keepBlankLines>
+                        <nrOfIndentSpace>4</nrOfIndentSpace>
+                        <predefinedSortOrder>recommended_2008_06</predefinedSortOrder>
+                        <spaceBeforeCloseEmptyElement>true</spaceBeforeCloseEmptyElement>
+                    </configuration>
+                </plugin>
+
                 <!-- Sonatype Provided Plugins -->
                 <plugin>
                     <groupId>org.sonatype.central</groupId>
@@ -585,6 +599,19 @@
                         <goals>
                             <goal>jar-no-fork</goal>
                         </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>com.github.ekryd.sortpom</groupId>
+                <artifactId>sortpom-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>sort</goal>
+                        </goals>
+                        <phase>verify</phase>
                     </execution>
                 </executions>
             </plugin>
