@@ -466,6 +466,7 @@
                             <licenseSet>
                                 <header>LICENSE_HEADER</header>
                                 <excludes>
+                                    <exclude>**/LICENSE-commons-logging.txt</exclude>
                                     <exclude>**/LICENSE-jackson.txt</exclude>
                                     <exclude>**/LICENSE-logback.txt</exclude>
                                     <exclude>**/LICENSE-slf4j.txt</exclude>
