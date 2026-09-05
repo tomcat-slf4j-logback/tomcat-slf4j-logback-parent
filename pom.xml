@@ -157,7 +157,7 @@
         <timestamp>${maven.build.timestamp}</timestamp>
 
         <!-- Enforcer Jdks Allowed -->
-        <allowed.build.jdks>[21,22),[25,26),[26,27),[27,28)</allowed.build.jdks>
+        <allowed.build.jdks>[21,22),[25,26),[26,27),[27,28),[28,29)</allowed.build.jdks>
 
         <!-- Plugin Artifacts -->
         <extra-enforcer-rules.version>1.12.0</extra-enforcer-rules.version>
